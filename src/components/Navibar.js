@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Header, MenuDiv } from '../styles/navbarStyle';
+import { NavibarComponent, MenuDiv } from '../styles/navbarStyle';
 
 function Navbar() {
     return (
-        <Header>
+        <NavibarComponent>
             <Link to='/'>
                 <h1>REPO<span>PROVAS</span></h1>
             </Link>
@@ -15,7 +15,7 @@ function Navbar() {
                     <h3>SOBRE</h3>
                 </Link>
             </MenuDiv>
-        </Header>
+        </NavibarComponent>
     );
 }
 

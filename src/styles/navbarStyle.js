@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Header = styled.div`
+const NavibarComponent = styled.nav`
     height: 10vh;
     display: flex;
     align-items: center;
@@ -38,6 +38,6 @@ const MenuDiv = styled.div`
 `;
 
 export {
-    Header,
+    NavibarComponent,
     MenuDiv,
 }
