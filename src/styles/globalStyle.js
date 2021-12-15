@@ -36,6 +36,7 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         line-height: 1;
+        font-family: 'Montserrat', sans-serif;
     }
     ol, ul {
         list-style: none;
@@ -51,6 +52,16 @@ const GlobalStyle = createGlobalStyle`
     table {
         border-collapse: collapse;
         border-spacing: 0;
+    }
+    button {
+        border: none;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
     }
 `;
 
