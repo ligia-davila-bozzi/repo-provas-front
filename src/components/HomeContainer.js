@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from '../assets/images/logo.png';
 import {
     Container,
@@ -18,7 +19,9 @@ function HomeContainer() {
                 </p>
                 <Box>
                     <BasicButton>Visualizar provas</BasicButton>
-                    <BasicButton>Enviar uma prova</BasicButton>
+                    <Link to='/send-test'>
+                        <BasicButton>Enviar uma prova</BasicButton>
+                    </Link>
                 </Box>
             </Text>
             <Image alt='Logo' src={logo} /> 

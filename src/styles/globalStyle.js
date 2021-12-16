@@ -63,6 +63,27 @@ const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         color: inherit;
     }
+    input, select {
+        border: none;
+        padding-left: 15px;
+    }
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+    ::-webkit-input-placeholder {
+        font-size: 13px;
+        color: #474a51;
+    }
+    :-moz-placeholder {
+        font-size: 13px;
+        color: #474a51;
+    }
+    :-ms-input-placeholder {  
+        font-size: 13px;
+        color: #474a51;
+    }    
 `;
 
 export default GlobalStyle;
