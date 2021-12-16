@@ -8,7 +8,7 @@ import {
     Box,
 } from '../styles/homeStyle';
 
-function HomeContainer() {
+function HomeContainer({ setIsHidden }) {
     return (
         <Container>
             <Text>
@@ -18,9 +18,13 @@ function HomeContainer() {
                     Quer uma luz? Então, receba :)
                 </p>
                 <Box>
-                    <BasicButton>Visualizar provas</BasicButton>
+                    <BasicButton onClick={() => setIsHidden(false)}>
+                        Visualizar provas
+                    </BasicButton>
                     <Link to='/send-test'>
-                        <BasicButton>Enviar uma prova</BasicButton>
+                        <BasicButton>
+                            Enviar uma prova
+                        </BasicButton>
                     </Link>
                 </Box>
             </Text>

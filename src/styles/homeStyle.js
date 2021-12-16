@@ -49,7 +49,7 @@ const BasicButton = styled.button`
     box-shadow: 4px 4px 8px rgb(0, 0, 0, 0.5);
     &:hover {
         cursor: pointer;
-        filter: brightness(130%);
+        color: #FFFFFF;
     }
 `;
 
