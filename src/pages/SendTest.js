@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../components/Navibar';
 import Footer from '../components/Footer';
-import { subjects } from '../mock/mockData';
-import { getCategories } from '../services/api';
+import { getCategories, getSubjectsWithProfessors } from '../services/api';
 import {
     Form,
     Select,
@@ -18,15 +17,24 @@ function SendTest() {
     const [professor, setProfessor] = useState('');
     const [pdfLink, setPdfLink] = useState('');
     const [categories, setCategories] = useState([]);
+    const [subjects, setSubjects] = useState([]);
 
     useEffect(() => {
         getCategories()
-                .then((res) => {
-                    setCategories(res.data);
-                })
-                .catch(() => {
-                    alert('Não foi possível carregar as categorias');
-                })
+            .then((res) => {
+                setCategories(res.data);
+            })
+            .catch(() => {
+                alert('Não foi possível carregar as categorias');
+            })
+        getSubjectsWithProfessors()
+            .then((res) => {
+                setSubjects(res.data);
+            })
+            .catch(() => {
+                alert('Não foi possível carregar as disciplinas');
+            })
+
         if (subject) {
             let auxArray = subjects.filter((e) => e.name === subject);
             setProfessors(auxArray[0].professors);

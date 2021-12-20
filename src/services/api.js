@@ -6,6 +6,12 @@ function getCategories(body) {
     return axios.get(`${BASE_URL}/categories`, body);
 }
 
+function getSubjectsWithProfessors(body) {
+    return axios.get(`${BASE_URL}/subjects/professors`, body);
+}
+
+
 export {
     getCategories,
+    getSubjectsWithProfessors,
 }
