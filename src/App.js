@@ -3,6 +3,7 @@ import GlobalStyle from './styles/globalStyle';
 import Home from './pages/Home';
 import SendTest from './pages/SendTest';
 import Professors from './pages/Professors';
+import Subjects from './pages/Subjects';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         </Route>
         <Route path='/professors' exact>
           <Professors/>
+        </Route>
+        <Route path='/subjects' exact>
+          <Subjects/>
         </Route>
       </Switch>
       <GlobalStyle/>

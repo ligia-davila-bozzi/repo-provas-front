@@ -14,8 +14,13 @@ function postTest(body) {
     return axios.post(`${BASE_URL}/test-register`, body);
 }
 
+function getSubjects() {
+    return axios.get(`${BASE_URL}/subjects`);
+}
+
 export {
     getCategories,
     getSubjectsWithProfessors,
     postTest,
+    getSubjects,
 }
