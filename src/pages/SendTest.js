@@ -80,12 +80,14 @@ function SendTest() {
                         placeholder='Semestre (ex: 2021.2)'
                         value={semester}
                         onChange={(e) => setSemester(e.target.value)}
+                        required
                     />
                     <Select 
                         name='category' 
                         defaultValue={'DEFAULT'} 
                         value={category} 
                         onChange={e => setCategory(e.target.value)}
+                        required
                     >
                         <option label='Categoria' disabled></option>
                         { categories.map((category, index) => (
@@ -96,6 +98,7 @@ function SendTest() {
                         name='subject'
                         value={subject}
                         onChange={e => setSubject(e.target.value)}
+                        required
                     >
                         <option label='Disciplina' disabled></option>
                         { subjects.map((subject, index) => (
@@ -107,6 +110,7 @@ function SendTest() {
                         defaultValue={'DEFAULT'}
                         value={professor}
                         onChange={e => setProfessor(e.target.value)}
+                        required
                     >
                         <option label='Professor(a)' disabled></option>
                         { professors ? professors.map((professor, index) => (
@@ -118,6 +122,7 @@ function SendTest() {
                         name='pdfLink'
                         placeholder='Link do pdf'
                         value={pdfLink} onChange={(e) => setPdfLink(e.target.value)}
+                        required
                     />
                     <PurpleButton type='submit'>
                         Enviar

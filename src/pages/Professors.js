@@ -55,7 +55,6 @@ const Div = styled.div`
 `;
 
 const ProfessorsList = styled.ul`
-    /* width: 30vw; */
     width: clamp(300px, 60%, 40vw);
     background-color: #17D0D8;
     padding: 20px 10px;

@@ -42,13 +42,7 @@ function Subjects() {
                    ))}
                 </GenericSession>
                 <LogoDiv>
-                    <>
-                        <h2>Escolha uma disciplina pra conseguir visualizar as provas</h2>
-                        <img src={test} alt='logo' />
-                    </>
-                    <>
-                     
-                    </>
+                    <img src={test} alt='logo' />
                 </LogoDiv>
             </Div>
             <Footer/>

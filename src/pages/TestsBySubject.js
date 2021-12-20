@@ -55,8 +55,7 @@ function TestsBySubject() {
                        </>
                    ))}
                 </GenericSession>
-                <LogoDiv>
-                    
+                <LogoDiv>                    
                     <img src={test} alt='logo' />
                 </LogoDiv>
             </Div>

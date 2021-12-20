@@ -52,7 +52,6 @@ function TestsByProfessor() {
                    ))}
                 </GenericSession>
                 <LogoDiv>
-                    
                     <img src={test} alt='loading...' />
                 </LogoDiv>
             </Div>
@@ -99,7 +98,7 @@ export const LogoDiv = styled.div`
     width: 30%;
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: center;
     justify-content: center;
     padding-top: 20px;
     img {
