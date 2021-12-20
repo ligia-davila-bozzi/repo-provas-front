@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 import styled from 'styled-components';
 import test from '../assets/images/test.png';
 import { getSubjects } from '../services/api';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom';
 
 function Subjects() {
     const [periods, setPeriods] = useState([]);
