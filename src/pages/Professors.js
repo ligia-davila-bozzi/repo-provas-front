@@ -1,73 +1,38 @@
+import { useState, useEffect } from 'react';
 import Navbar from '../components/Navibar';
 import Footer from '../components/Footer';
 import styled from 'styled-components';
 import test from '../assets/images/test.png';
-
-const testsByProfessor = [
-    {
-        id: 1,
-        name: 'Rogério Santos',
-        tests: [
-            {
-                id: 1,
-                name: '2021.1',
-                subject: 'Cálculo I',
-                category: 'P1',
-                pdfLink: 'https://www.google.com/'
-            }
-        ]
-
-    },
-    {
-        id: 2,
-        name: 'Suzana Matos',
-        tests: [
-            {
-                id: 1,
-                name: '2021.2',
-                subject: 'Física I',
-                category: 'P2',
-                pdfLink: 'https://www.google.com/'
-            }
-        ]
-
-    },
-    {
-        id: 3,
-        name: 'Clara Luz',
-        tests: [
-            {
-                id: 1,
-                name: '2021.2',
-                subject: 'Química Geral I',
-                category: 'P3',
-                pdfLink: 'https://www.google.com/'
-            },
-            {
-                id: 2,
-                name: '2021.1',
-                subject: 'Química Geral II',
-                category: 'P1',
-                pdfLink: 'https://www.google.com/'
-            }
-        ]
-
-    }
-]
+import { getProfessors } from '../services/api';
+import { Link } from 'react-router-dom';
 
 function Professors() {
+    const [professors, setProfessors] = useState([]);
+
+    useEffect(() => {
+        getProfessors()
+            .then((res) => {
+                setProfessors(res.data);
+            })
+            .catch(() => {
+                alert('Não foi possível carregar os professores');
+            })
+    }, [])
     return (
         <>
             <Navbar/>
             <Div>
                 <ProfessorsList>
-                   { testsByProfessor.map((professor) => (
-                       <li>{`${professor.name} (${professor.tests.length} provas)`}</li>
+                    <h2>Professores</h2>
+                   { professors.map((professor) => (
+                       <Link to={`/professors/${professor.id}/tests`}>
+                            <li>{`${professor.name} (${professor.tests.length} provas)`}</li>
+                       </Link>
                    ))}
                 </ProfessorsList>
                 <TestsDiv>
                     <h2>Escolha um professor pra conseguir visualizar as provas</h2>
-                    <img src={test} alt='loading...' />
+                    <img src={test} alt='logo' />
                 </TestsDiv>
             </Div>
             <Footer/>

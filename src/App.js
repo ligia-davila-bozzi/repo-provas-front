@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import SendTest from './pages/SendTest';
 import Professors from './pages/Professors';
 import Subjects from './pages/Subjects';
+import TestsBySubject from './pages/TestsBySubject';
+import TestsByProfessor from './pages/TestsByProfessor';
 
 function App() {
   return (
@@ -20,6 +22,12 @@ function App() {
         </Route>
         <Route path='/subjects' exact>
           <Subjects/>
+        </Route>
+        <Route path='/subjects/:id/tests' exact>
+          <TestsBySubject/>
+        </Route>
+        <Route path='/professors/:id/tests' exact>
+          <TestsByProfessor/>
         </Route>
       </Switch>
       <GlobalStyle/>

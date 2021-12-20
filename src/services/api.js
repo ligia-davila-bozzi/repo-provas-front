@@ -18,9 +18,24 @@ function getSubjects() {
     return axios.get(`${BASE_URL}/subjects`);
 }
 
+function getTestsBySubject(id) {
+    return axios.get(`${BASE_URL}/subjects/${id}/tests`);
+}
+
+function getTestsByProfessor(id) {
+    return axios.get(`${BASE_URL}/professors/${id}/tests`);
+}
+
+function getProfessors() {
+    return axios.get(`${BASE_URL}/professors`);
+}
+
 export {
     getCategories,
     getSubjectsWithProfessors,
     postTest,
     getSubjects,
+    getTestsBySubject,
+    getProfessors,
+    getTestsByProfessor,
 }
