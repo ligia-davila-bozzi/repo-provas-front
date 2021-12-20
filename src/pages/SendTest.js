@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 import Navbar from '../components/Navibar';
 import Footer from '../components/Footer';
-import { getCategories, getSubjectsWithProfessors } from '../services/api';
+import { getCategories, getSubjectsWithProfessors, postTest } from '../services/api';
 import {
     Form,
     Select,
     PurpleButton,
     DivForm,
 } from '../styles/sendSubjectStyle';
+import { useHistory } from 'react-router-dom';
 
 function SendTest() {
     const [professors, setProfessors] = useState([]);
@@ -18,6 +20,7 @@ function SendTest() {
     const [pdfLink, setPdfLink] = useState('');
     const [categories, setCategories] = useState([]);
     const [subjects, setSubjects] = useState([]);
+    const history = useHistory();
 
     useEffect(() => {
         getCategories()
@@ -29,6 +32,7 @@ function SendTest() {
             })
         getSubjectsWithProfessors()
             .then((res) => {
+                console.log(res.data)
                 setSubjects(res.data);
             })
             .catch(() => {
@@ -36,7 +40,7 @@ function SendTest() {
             })
 
         if (subject) {
-            let auxArray = subjects.filter((e) => e.name === subject);
+            let auxArray = subjects.filter((e) => e.id === Number(subject));
             setProfessors(auxArray[0].professors);
         }
     }, [subject])
@@ -44,16 +48,26 @@ function SendTest() {
     function SendTestInfo(event) {
        event.preventDefault();
        const body = {
-        semester,
-        category,
-        subject,
-        professor,
-        pdfLink,
+            name: semester,
+            category,
+            subject,
+            professor,
+            pdfLink,
        }
-        console.log(body)
+       console.log(body)
+        postTest(body)
+            .then((res) => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Belezinha!',
+                    text: 'Prova enviada com sucesso!',
+                })
+                history.push('/');
+            })
+           .catch((error) => {
+                alert('Houve um erro ao cadastrar a prova');
+           })
     }
-
-    
 
     return (
         <>
@@ -75,7 +89,7 @@ function SendTest() {
                     >
                         <option label='Categoria' disabled></option>
                         { categories.map((category, index) => (
-                            <option key={index} value={category.name}>{category.name}</option>
+                            <option key={index} value={category.id}>{category.name}</option>
                         ))}
                     </Select>
                     <Select
@@ -85,7 +99,7 @@ function SendTest() {
                     >
                         <option label='Disciplina' disabled></option>
                         { subjects.map((subject, index) => (
-                            <option key={index} value={subject.name}>{subject.name}</option>
+                            <option key={index} value={subject.id}>{subject.name}</option>
                         ))}
                     </Select>
                     <Select
@@ -96,7 +110,7 @@ function SendTest() {
                     >
                         <option label='Professor(a)' disabled></option>
                         { professors ? professors.map((professor, index) => (
-                            <option key={index} value={professor.name}>{professor.name}</option>
+                            <option key={index} value={professor.id}>{professor.name}</option>
                         )): ''}
                     </Select>
                     <input
